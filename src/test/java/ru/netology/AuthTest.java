@@ -14,7 +14,7 @@ public class AuthTest {
     @Test
     public void shouldCorrectLogIn() {
         String status = "active";
-        RegInfo info = DataGenerator.Registration.setUpAll(status);
+        RegistrationInfo info = DataGenerator.Registration.setUpAll(status);
 
         open("http://localhost:9999");
         $("[data-test-id='login'] input").setValue(info.getLogin());
@@ -26,8 +26,8 @@ public class AuthTest {
     @Test
     public void shouldShowWrongLogin() {
         String status = "active";
-        RegInfo info = DataGenerator.Registration.setUpAll(status);
-        RegInfo wrongInfo = DataGenerator.Registration.invalidData();
+        RegistrationInfo info = DataGenerator.Registration.setUpAll(status);
+        RegistrationInfo wrongInfo = DataGenerator.Registration.invalidData();
 
         open("http://localhost:9999");
         $("[data-test-id='login'] input").setValue(wrongInfo.getLogin());
@@ -39,8 +39,8 @@ public class AuthTest {
     @Test
     public void shouldShowWrongPassword() {
         String status = "active";
-        RegInfo info = DataGenerator.Registration.setUpAll(status);
-        RegInfo wrongInfo = DataGenerator.Registration.invalidData();
+        RegistrationInfo info = DataGenerator.Registration.setUpAll(status);
+        RegistrationInfo wrongInfo = DataGenerator.Registration.invalidData();
 
         open("http://localhost:9999");
         $("[data-test-id='login'] input").setValue(info.getLogin());
@@ -52,7 +52,7 @@ public class AuthTest {
     @Test
     public void shouldFindBlockUser() {
         String status = "blocked";
-        RegInfo info = DataGenerator.Registration.setUpAll(status);
+        RegistrationInfo info = DataGenerator.Registration.setUpAll(status);
 
         open("http://localhost:9999");
         $("[data-test-id='login'] input").setValue(info.getLogin());
@@ -64,8 +64,8 @@ public class AuthTest {
     @Test
     public void shouldLeaveFieldsBlank() {
         String status = "active";
-        RegInfo info = DataGenerator.Registration.setUpAll(status);
-        RegInfo blankField = DataGenerator.Registration.emptyData();
+        RegistrationInfo info = DataGenerator.Registration.setUpAll(status);
+        RegistrationInfo blankField = DataGenerator.Registration.emptyData();
 
         open("http://localhost:9999");
         $("[data-test-id='login'] input").setValue(blankField.getLogin());
@@ -78,8 +78,8 @@ public class AuthTest {
     @Test
     public void shouldNotFindTheUser() {
         String status = "active";
-        RegInfo info = DataGenerator.Registration.setUpAll(status);
-        RegInfo wrongInfo = DataGenerator.Registration.invalidData();
+        RegistrationInfo info = DataGenerator.Registration.setUpAll(status);
+        RegistrationInfo wrongInfo = DataGenerator.Registration.invalidData();
 
         open("http://localhost:9999");
         $("[data-test-id='login'] input").setValue(wrongInfo.getLogin());

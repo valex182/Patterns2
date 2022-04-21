@@ -24,9 +24,9 @@ public class DataGenerator {
                 .log(LogDetail.ALL)
                 .build();
 
-        static RegInfo setUpAll(String status) {
+        static RegistrationInfo setUpAll(String status) {
             Faker faker = new Faker();
-            RegInfo user = new RegInfo(faker.name().username(), faker.internet().password(), status);
+            RegistrationInfo user = new RegistrationInfo(faker.name().username(), faker.internet().password(), status);
             // сам запрос
             given() // "дано"
                     .spec(requestSpec) // указываем, какую спецификацию используем
@@ -38,13 +38,13 @@ public class DataGenerator {
             return user;
         }
 
-        static RegInfo invalidData() {
+        static RegistrationInfo invalidData() {
             Faker faker1 = new Faker();
-            return new RegInfo(faker1.name().username(), faker1.internet().password());
+            return new RegistrationInfo(faker1.name().username(), faker1.internet().password());
         }
 
-        static RegInfo emptyData() {
-            return new RegInfo("", "");
+        static RegistrationInfo emptyData() {
+            return new RegistrationInfo("", "");
         }
     }
 }

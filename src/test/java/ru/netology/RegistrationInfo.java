@@ -5,12 +5,12 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class RegInfo {
+public class RegistrationInfo {
     private String login;
     private String password;
     private String status;
 
-    public RegInfo(String login, String password) {
+    public RegistrationInfo(String login, String password) {
         this.login = login;
         this.password = password;
     }
